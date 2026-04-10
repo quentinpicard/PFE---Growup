@@ -1,0 +1,525 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════
+   DESIGN SYSTEM — PFE
+   Source : Figma (4dqv7v5U4SKfIdqY3fzmtU)
+   Collections : Primitives + Tokens
+══════════════════════════════════════════════════ */
+
+/* ─── Couleurs primitives ─── */
+:root {
+  /* Primary — vert */
+  --primitive-primary-050: #F2F8F1;
+  --primitive-primary-100: #E6F2E7;
+  --primitive-primary-200: #CEE4D1;
+  --primitive-primary-300: #A8CDAD;
+  --primitive-primary-400: #79AF81;
+  --primitive-primary-500: #56915F;
+  --primitive-primary-600: #427449;
+  --primitive-primary-700: #375E3D;
+  --primitive-primary-800: #2F4C33;
+  --primitive-primary-900: #283F2C;
+  --primitive-primary-950: #1F3524;
+
+  /* Secondary — kaki / olive */
+  --primitive-secondary-050: #F8F5EE;
+  --primitive-secondary-100: #E9E8D8;
+  --primitive-secondary-200: #D4D2B4;
+  --primitive-secondary-300: #BBB689;
+  --primitive-secondary-400: #A79E68;
+  --primitive-secondary-500: #988D5A;
+  --primitive-secondary-600: #82754C;
+  --primitive-secondary-700: #695B3F;
+  --primitive-secondary-800: #5A4C39;
+  --primitive-secondary-900: #4F4334;
+  --primitive-secondary-950: #3B3025;
+
+  /* Tertiary — jaune-or */
+  --primitive-tertiary-050: #FDFDE9;
+  --primitive-tertiary-100: #FCFCC5;
+  --primitive-tertiary-200: #FAF78E;
+  --primitive-tertiary-300: #F7EC59;
+  --primitive-tertiary-400: #F2DA1D;
+  --primitive-tertiary-500: #E2C210;
+  --primitive-tertiary-600: #C3980B;
+  --primitive-tertiary-700: #9B6E0D;
+  --primitive-tertiary-800: #815712;
+  --primitive-tertiary-900: #6E4715;
+  --primitive-tertiary-950: #402508;
+
+  /* Success — indigo */
+  --primitive-success-050: #EDF4FF;
+  --primitive-success-100: #DFEAFF;
+  --primitive-success-200: #C5D8FF;
+  --primitive-success-300: #A1BEFF;
+  --primitive-success-400: #7C98FD;
+  --primitive-success-500: #5970F7;
+  --primitive-success-600: #3F4BEC;
+  --primitive-success-700: #323AD0;
+  --primitive-success-800: #2B33A8;
+  --primitive-success-900: #2A3185;
+  --primitive-success-950: #191C4D;
+
+  /* Error — rouge */
+  --primitive-error-050: #FEF2F2;
+  --primitive-error-100: #FEE2E2;
+  --primitive-error-200: #FECACA;
+  --primitive-error-300: #FCA5A5;
+  --primitive-error-400: #F75959;
+  --primitive-error-500: #EF4444;
+  --primitive-error-600: #DC2626;
+  --primitive-error-700: #B91C1C;
+  --primitive-error-800: #991B1B;
+  --primitive-error-900: #7F1D1D;
+  --primitive-error-950: #450A0A;
+
+  /* Warning — orange */
+  --primitive-warning-050: #FFF7ED;
+  --primitive-warning-100: #FEEDD6;
+  --primitive-warning-200: #FCD7AC;
+  --primitive-warning-300: #F9BA78;
+  --primitive-warning-400: #F7A059;
+  --primitive-warning-500: #F3741C;
+  --primitive-warning-600: #E45A12;
+  --primitive-warning-700: #BD4311;
+  --primitive-warning-800: #963616;
+  --primitive-warning-900: #792E15;
+  --primitive-warning-950: #411509;
+
+  /* Gray */
+  --primitive-gray-050: #F8F7F7;
+  --primitive-gray-100: #F0EEEE;
+  --primitive-gray-200: #DDDADA;
+  --primitive-gray-300: #BFBABA;
+  --primitive-gray-400: #9B9595;
+  --primitive-gray-500: #7F7879;
+  --primitive-gray-600: #686162;
+  --primitive-gray-700: #554F4F;
+  --primitive-gray-800: #484445;
+  --primitive-gray-900: #3F3B3B;
+  --primitive-gray-950: #252323;
+
+  /* Radius primitifs */
+  --primitive-radius-0:   0px;
+  --primitive-radius-1:   4px;
+  --primitive-radius-1_5: 6px;
+  --primitive-radius-2:   8px;
+  --primitive-radius-3:   12px;
+  --primitive-radius-3_5: 14px;
+  --primitive-radius-4:   16px;
+  --primitive-radius-5:   20px;
+  --primitive-radius-6:   24px;
+  --primitive-radius-8:   32px;
+  --primitive-radius-10:  40px;
+  --primitive-radius-16:  64px;
+  --primitive-radius-24:  96px;
+  --primitive-radius-32:  128px;
+}
+
+/* ─── Tokens sémantiques ─── */
+:root {
+  /* Focus */
+  --color-focus: #FF00E6;
+
+  /* Texte */
+  --color-text-dark:  var(--primitive-gray-950);
+  --color-text-light: var(--primitive-gray-050);
+  --color-light: #FFFFFF;
+  --color-dark:  var(--primitive-gray-950);
+
+  /* Primary */
+  --color-primary-main:     var(--primitive-primary-800);
+  --color-primary-dark:     var(--primitive-primary-950);
+  --color-primary-light:    var(--primitive-primary-100);
+  --color-primary-contrast: var(--primitive-gray-050);
+  --color-primary-hover:    rgba(86, 145, 95, 0.75);
+  --color-primary-selected: var(--primitive-primary-500);
+  --color-primary-focused:  var(--color-focus);
+  --color-primary-outline:  var(--primitive-primary-700);
+
+  /* Secondary */
+  --color-secondary-main:     var(--primitive-secondary-800);
+  --color-secondary-dark:     var(--primitive-secondary-950);
+  --color-secondary-light:    var(--primitive-secondary-100);
+  --color-secondary-contrast: var(--primitive-gray-050);
+  --color-secondary-hover:    rgba(152, 141, 90, 0.5);
+  --color-secondary-selected: var(--primitive-secondary-400);
+  --color-secondary-focused:  var(--color-focus);
+  --color-secondary-outline:  var(--primitive-secondary-600);
+
+  /* Tertiary */
+  --color-tertiary-main:     var(--primitive-tertiary-700);
+  --color-tertiary-dark:     var(--primitive-tertiary-950);
+  --color-tertiary-light:    var(--primitive-tertiary-100);
+  --color-tertiary-contrast: var(--primitive-gray-050);
+  --color-tertiary-hover:    rgba(226, 194, 16, 0.5);
+  --color-tertiary-selected: var(--primitive-tertiary-500);
+  --color-tertiary-focused:  var(--color-focus);
+  --color-tertiary-outline:  var(--primitive-tertiary-600);
+
+  /* Success */
+  --color-success-main:     var(--primitive-success-400);
+  --color-success-dark:     var(--primitive-success-950);
+  --color-success-light:    var(--primitive-success-100);
+  --color-success-contrast: var(--primitive-gray-050);
+  --color-success-hover:    rgba(42, 49, 133, 0.5);
+  --color-success-selected: var(--primitive-success-900);
+  --color-success-focused:  var(--color-focus);
+  --color-success-outline:  var(--primitive-success-600);
+
+  /* Warning */
+  --color-warning-main:     var(--primitive-warning-400);
+  --color-warning-dark:     var(--primitive-warning-900);
+  --color-warning-light:    var(--primitive-warning-100);
+  --color-warning-contrast: var(--primitive-gray-050);
+  --color-warning-hover:    rgba(121, 46, 21, 0.5);
+  --color-warning-selected: var(--primitive-warning-900);
+  --color-warning-focused:  var(--color-focus);
+  --color-warning-outline:  var(--primitive-warning-500);
+
+  /* Error */
+  --color-error-main:     var(--primitive-error-400);
+  --color-error-dark:     var(--primitive-error-900);
+  --color-error-light:    var(--primitive-error-100);
+  --color-error-contrast: var(--primitive-gray-050);
+  --color-error-hover:    rgba(127, 29, 29, 0.5);
+  --color-error-selected: var(--primitive-error-900);
+  --color-error-focused:  var(--color-focus);
+  --color-error-outline:  var(--primitive-error-600);
+
+  /* Gray */
+  --color-gray-main:     var(--primitive-gray-500);
+  --color-gray-dark:     var(--primitive-gray-950);
+  --color-gray-light:    var(--primitive-gray-100);
+  --color-gray-contrast: var(--primitive-gray-050);
+  --color-gray-hover:    rgba(30, 41, 57, 0.5);
+  --color-gray-active:   var(--primitive-gray-900);
+  --color-gray-focused:  var(--color-focus);
+  --color-gray-outline:  var(--primitive-gray-500);
+
+  /* Disabled */
+  --color-disabled-bg:   var(--primitive-gray-500);
+  --color-disabled-text: var(--primitive-gray-300);
+
+  /* Radius sémantiques */
+  --radius-btn:      var(--primitive-radius-32);  /* 128px — pill */
+  --radius-tag:      var(--primitive-radius-1_5); /* 6px */
+  --radius-input:    var(--primitive-radius-2);   /* 8px */
+  --radius-card-xs:  var(--primitive-radius-1);   /* 4px */
+  --radius-card-s:   var(--primitive-radius-3);   /* 12px */
+  --radius-card-m:   var(--primitive-radius-4);   /* 16px */
+  --radius-card-l:   var(--primitive-radius-6);   /* 24px */
+  --radius-card-xl:  var(--primitive-radius-16);  /* 64px */
+
+  /* Familles de polices (variables injectées par Next.js font) */
+  --font-title:      var(--font-gabarito), sans-serif;
+  --font-subtitle:   var(--font-playpen-sans), cursive;
+  --font-text:       var(--font-poppins), sans-serif;
+  --font-btn:        var(--font-gabarito), sans-serif;
+  --font-tag:        var(--font-playpen-sans), cursive;
+  --font-card-title: var(--font-playpen-sans), cursive;
+}
+
+/* ─── Extension Tailwind v4 ─── */
+@theme inline {
+  /* Couleurs */
+  --color-primary:           var(--color-primary-main);
+  --color-primary-light:     var(--color-primary-light);
+  --color-primary-dark:      var(--color-primary-dark);
+  --color-primary-contrast:  var(--color-primary-contrast);
+
+  --color-secondary:          var(--color-secondary-main);
+  --color-secondary-light:    var(--color-secondary-light);
+  --color-secondary-dark:     var(--color-secondary-dark);
+  --color-secondary-contrast: var(--color-secondary-contrast);
+
+  --color-tertiary:           var(--color-tertiary-main);
+  --color-tertiary-light:     var(--color-tertiary-light);
+  --color-tertiary-dark:      var(--color-tertiary-dark);
+  --color-tertiary-contrast:  var(--color-tertiary-contrast);
+
+  --color-success:  var(--color-success-main);
+  --color-warning:  var(--color-warning-main);
+  --color-error:    var(--color-error-main);
+  --color-focus:    var(--color-focus);
+
+  /* Border-radius */
+  --radius-btn:     var(--radius-btn);
+  --radius-tag:     var(--radius-tag);
+  --radius-input:   var(--radius-input);
+  --radius-card-xs: var(--radius-card-xs);
+  --radius-card-s:  var(--radius-card-s);
+  --radius-card-m:  var(--radius-card-m);
+  --radius-card-l:  var(--radius-card-l);
+  --radius-card-xl: var(--radius-card-xl);
+
+  /* Polices */
+  --font-title:      var(--font-title);
+  --font-subtitle:   var(--font-subtitle);
+  --font-text:       var(--font-text);
+  --font-btn:        var(--font-btn);
+}
+
+body {
+  background: var(--color-light);
+  color: var(--color-text-dark);
+  font-family: var(--font-text);
+}
+
+/* ─── Button ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 24px;
+  height: 40px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-btn);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  background: var(--color-disabled-bg) !important;
+  color: var(--color-disabled-text) !important;
+  border-color: transparent !important;
+  cursor: not-allowed;
+}
+
+/* ── Contained ── */
+.btn[data-fill="contained"][data-variant="primary"] {
+  background: var(--color-primary-main);
+  color: var(--color-primary-contrast);
+}
+.btn[data-fill="contained"][data-variant="primary"]:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.btn[data-fill="contained"][data-variant="secondary"] {
+  background: var(--color-secondary-main);
+  color: var(--color-secondary-contrast);
+}
+.btn[data-fill="contained"][data-variant="secondary"]:hover:not(:disabled) {
+  background: var(--color-secondary-hover);
+}
+
+.btn[data-fill="contained"][data-variant="tertiary"] {
+  background: var(--color-tertiary-main);
+  color: var(--color-tertiary-contrast);
+}
+.btn[data-fill="contained"][data-variant="tertiary"]:hover:not(:disabled) {
+  background: var(--color-tertiary-hover);
+}
+
+.btn[data-fill="contained"][data-variant="success"] {
+  background: var(--color-success-main);
+  color: var(--color-success-contrast);
+}
+.btn[data-fill="contained"][data-variant="success"]:hover:not(:disabled) {
+  background: var(--color-success-hover);
+}
+
+.btn[data-fill="contained"][data-variant="warning"] {
+  background: var(--color-warning-main);
+  color: var(--color-warning-contrast);
+}
+.btn[data-fill="contained"][data-variant="warning"]:hover:not(:disabled) {
+  background: var(--color-warning-hover);
+}
+
+.btn[data-fill="contained"][data-variant="error"] {
+  background: var(--color-error-main);
+  color: var(--color-error-contrast);
+}
+.btn[data-fill="contained"][data-variant="error"]:hover:not(:disabled) {
+  background: var(--color-error-hover);
+}
+
+/* ── Outline ── */
+.btn[data-fill="outline"][data-variant="primary"] {
+  background: transparent;
+  border-color: var(--color-primary-outline);
+  color: var(--color-primary-main);
+}
+.btn[data-fill="outline"][data-variant="primary"]:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  color: var(--color-primary-contrast);
+}
+
+.btn[data-fill="outline"][data-variant="secondary"] {
+  background: transparent;
+  border-color: var(--color-secondary-outline);
+  color: var(--color-secondary-main);
+}
+.btn[data-fill="outline"][data-variant="secondary"]:hover:not(:disabled) {
+  background: var(--color-secondary-hover);
+}
+
+.btn[data-fill="outline"][data-variant="tertiary"] {
+  background: transparent;
+  border-color: var(--color-tertiary-outline);
+  color: var(--color-tertiary-main);
+}
+.btn[data-fill="outline"][data-variant="tertiary"]:hover:not(:disabled) {
+  background: var(--color-tertiary-hover);
+}
+
+.btn[data-fill="outline"][data-variant="success"] {
+  background: transparent;
+  border-color: var(--color-success-outline);
+  color: var(--color-success-main);
+}
+.btn[data-fill="outline"][data-variant="success"]:hover:not(:disabled) {
+  background: var(--color-success-hover);
+  color: var(--color-success-contrast);
+}
+
+.btn[data-fill="outline"][data-variant="warning"] {
+  background: transparent;
+  border-color: var(--color-warning-outline);
+  color: var(--color-warning-main);
+}
+.btn[data-fill="outline"][data-variant="warning"]:hover:not(:disabled) {
+  background: var(--color-warning-hover);
+}
+
+.btn[data-fill="outline"][data-variant="error"] {
+  background: transparent;
+  border-color: var(--color-error-outline);
+  color: var(--color-error-main);
+}
+.btn[data-fill="outline"][data-variant="error"]:hover:not(:disabled) {
+  background: var(--color-error-hover);
+  color: var(--color-error-contrast);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── Vegetable Card — Vertical ─── */
+.vcard-v {
+  width: 209px;
+  background: var(--color-light);
+  border-radius: var(--radius-card-xs);    /* 8px — card corner radius */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.vcard-v__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 93px;
+  flex-shrink: 0;
+  border-radius: var(--primitive-radius-1) var(--primitive-radius-1) 0 0; /* tl:4 tr:4 bl:0 br:0 */
+  overflow: hidden;
+}
+
+.vcard-v__img {
+  object-fit: cover;
+}
+
+/* Badge sur l'image */
+.vcard-v__badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Indicateur d'état (dot) */
+.vcard-v__dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary-selected); /* primary/500 */
+  border: 2px solid var(--color-light);
+  flex-shrink: 0;
+}
+
+/* Tag chip — utilisé dans le badge et la row de tags */
+.vcard-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: var(--radius-tag);         /* 6px */
+  font-family: var(--font-tag);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  background: var(--primitive-primary-200); /* #CEE4D1 */
+  color: var(--color-primary-main);
+}
+
+/* Corps de la carte */
+.vcard-v__body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 8px;
+}
+
+/* Bloc texte (prend tout l'espace dispo) */
+.vcard-v__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Row de tags optionnels */
+.vcard-v__tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Titre */
+.vcard-v__title {
+  font-family: var(--font-card-title);       /* Playpen Sans */
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary-main);          /* primary/800 */
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Zone */
+.vcard-v__zone {
+  font-family: var(--font-text);             /* Poppins */
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-primary-selected);      /* primary/500 */
+  margin: 0;
+}
+
+/* Icône récolte */
+.vcard-v__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
