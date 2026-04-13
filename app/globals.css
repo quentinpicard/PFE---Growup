@@ -267,7 +267,15 @@ body {
 }
 
 /* ─── Button ─── */
+
+:root {
+  --btn-shadow-contained:
+    -4px -4px 4px 0px rgba(37,  35,  35,  0.25) inset,
+     3px  4px 4px 0px rgba(248, 247, 247, 0.20) inset;
+}
+
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -281,8 +289,23 @@ body {
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  border: 0px;
+  overflow: hidden;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Grain — reproduit l'effet TEXTURE Figma */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .btn:focus-visible {
@@ -293,72 +316,88 @@ body {
 .btn:disabled {
   background: var(--color-disabled-bg) !important;
   color: var(--color-disabled-text) !important;
-  border-color: transparent !important;
+  box-shadow: none !important;
   cursor: not-allowed;
 }
+.btn:disabled::after { display: none; }
 
-/* ── Contained ── */
+/* ══ Contained — shadow 3D + pas de border ══ */
+.btn[data-fill="contained"] {
+  box-shadow: var(--btn-shadow-contained);
+  color: var(--primitive-gray-050);
+}
+
 .btn[data-fill="contained"][data-variant="primary"] {
   background: var(--color-primary-main);
-  color: var(--color-primary-contrast);
 }
 .btn[data-fill="contained"][data-variant="primary"]:hover:not(:disabled) {
-  background: var(--color-primary-hover);
+  background:
+    linear-gradient(var(--color-primary-hover), var(--color-primary-hover)),
+    var(--color-primary-main);
 }
 
 .btn[data-fill="contained"][data-variant="secondary"] {
   background: var(--color-secondary-main);
-  color: var(--color-secondary-contrast);
 }
 .btn[data-fill="contained"][data-variant="secondary"]:hover:not(:disabled) {
-  background: var(--color-secondary-hover);
+  background:
+    linear-gradient(var(--color-secondary-hover), var(--color-secondary-hover)),
+    var(--color-secondary-main);
 }
 
 .btn[data-fill="contained"][data-variant="tertiary"] {
   background: var(--color-tertiary-main);
-  color: var(--color-tertiary-contrast);
 }
 .btn[data-fill="contained"][data-variant="tertiary"]:hover:not(:disabled) {
-  background: var(--color-tertiary-hover);
+  background:
+    linear-gradient(var(--color-tertiary-hover), var(--color-tertiary-hover)),
+    var(--color-tertiary-main);
 }
 
 .btn[data-fill="contained"][data-variant="success"] {
   background: var(--color-success-main);
-  color: var(--color-success-contrast);
 }
 .btn[data-fill="contained"][data-variant="success"]:hover:not(:disabled) {
-  background: var(--color-success-hover);
+  background:
+    linear-gradient(var(--color-success-hover), var(--color-success-hover)),
+    var(--color-success-main);
 }
 
 .btn[data-fill="contained"][data-variant="warning"] {
   background: var(--color-warning-main);
-  color: var(--color-warning-contrast);
 }
 .btn[data-fill="contained"][data-variant="warning"]:hover:not(:disabled) {
-  background: var(--color-warning-hover);
+  background:
+    linear-gradient(var(--color-warning-hover), var(--color-warning-hover)),
+    var(--color-warning-main);
 }
 
 .btn[data-fill="contained"][data-variant="error"] {
   background: var(--color-error-main);
-  color: var(--color-error-contrast);
 }
 .btn[data-fill="contained"][data-variant="error"]:hover:not(:disabled) {
-  background: var(--color-error-hover);
+  background:
+    linear-gradient(var(--color-error-hover), var(--color-error-hover)),
+    var(--color-error-main);
 }
 
-/* ── Outline ── */
-.btn[data-fill="outline"][data-variant="primary"] {
+/* ══ Outline — border 2px, pas de shadow ══ */
+.btn[data-fill="outline"] {
   background: transparent;
+  border: 2px solid;
+}
+.btn[data-fill="outline"]::after { opacity: 0; }
+
+.btn[data-fill="outline"][data-variant="primary"] {
   border-color: var(--color-primary-outline);
   color: var(--color-primary-main);
 }
 .btn[data-fill="outline"][data-variant="primary"]:hover:not(:disabled) {
   background: var(--color-primary-hover);
-  color: var(--color-primary-contrast);
+  color: var(--primitive-gray-050);
 }
 
 .btn[data-fill="outline"][data-variant="secondary"] {
-  background: transparent;
   border-color: var(--color-secondary-outline);
   color: var(--color-secondary-main);
 }
@@ -367,7 +406,6 @@ body {
 }
 
 .btn[data-fill="outline"][data-variant="tertiary"] {
-  background: transparent;
   border-color: var(--color-tertiary-outline);
   color: var(--color-tertiary-main);
 }
@@ -376,17 +414,15 @@ body {
 }
 
 .btn[data-fill="outline"][data-variant="success"] {
-  background: transparent;
   border-color: var(--color-success-outline);
   color: var(--color-success-main);
 }
 .btn[data-fill="outline"][data-variant="success"]:hover:not(:disabled) {
   background: var(--color-success-hover);
-  color: var(--color-success-contrast);
+  color: var(--primitive-gray-050);
 }
 
 .btn[data-fill="outline"][data-variant="warning"] {
-  background: transparent;
   border-color: var(--color-warning-outline);
   color: var(--color-warning-main);
 }
@@ -395,13 +431,12 @@ body {
 }
 
 .btn[data-fill="outline"][data-variant="error"] {
-  background: transparent;
   border-color: var(--color-error-outline);
   color: var(--color-error-main);
 }
 .btn[data-fill="outline"][data-variant="error"]:hover:not(:disabled) {
   background: var(--color-error-hover);
-  color: var(--color-error-contrast);
+  color: var(--primitive-gray-050);
 }
 
 .btn-icon {
